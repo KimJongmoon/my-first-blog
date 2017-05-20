@@ -1,4 +1,6 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
+
+{% block title %}Login{% endlock %}
 
 {% block content %}
 
@@ -9,8 +11,6 @@
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 <input type="hidden" name="next" value="" />
-
-
 
 <button type="submit">로그인</button>
 </form>
