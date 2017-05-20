@@ -6,7 +6,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('blog.urls')),
     url(
-        r'^login/', auth_views.login, name = 'login',
+        r'^login/', auth_views.login, {'template_name': 'blog/login.html'},
+        name = 'login',
     ),
     url(
         r'^logout/', auth_views.logout, name = 'logout',
