@@ -10,6 +10,7 @@ def post_list(request, pk):
     post = Post.objects.get(pk=pk)
 
     messages = (
+        '<p>사진입니다</p>'
         '<p><img src="url" /></p>'.format(url = post.image.url),
     )
     return HttpResponse('\n'.join(messages))
