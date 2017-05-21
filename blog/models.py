@@ -11,3 +11,8 @@ class Post(models.Model):
 
     def publish(self):
         self.save()
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        self.filtered_image.delete()
+        super(Post, self).delete(*args, **kwargs)
