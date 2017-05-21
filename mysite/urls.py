@@ -1,6 +1,9 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from blog.Post import post_list
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -12,4 +15,6 @@ urlpatterns = [
     url(
         r'^logout/', auth_views.logout, name = 'logout',
     ),
+    url(r'^post/(?P<pk>[0-9]+)/$', post_list name = post_list)
 ]
+urlpatterns += static('upload_files', document_root=settings.MEDIA_ROOT)
