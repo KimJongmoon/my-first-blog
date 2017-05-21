@@ -15,6 +15,6 @@ urlpatterns = [
     url(
         r'^logout/', auth_views.logout, name = 'logout',
     ),
-    url(r'^post/(?P<pk>[0-9]+)/$', post_list, name = post_list)
+    url(r'^post/(?P<pk>[0-9]+)/$', post_list, name = 'post_list'),
 ]
 urlpatterns += static('upload_files', document_root=settings.MEDIA_ROOT)
