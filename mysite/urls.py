@@ -19,6 +19,5 @@ urlpatterns = [
     ),
     url(r'^post/(?P<pk>[0-9]+)/$', post_list, name = 'post_list'),
     url(r'^post/upload/$', create, name='create'),
-    url(r'^main/', main, name='main'),
 ]
 urlpatterns += static('upload_files', document_root=settings.MEDIA_ROOT)
