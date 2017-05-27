@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse_lazy
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -16,3 +17,7 @@ class Post(models.Model):
         self.image.delete()
         self.filtered_image.delete()
         super(Post, self).delete(*args, **kwargs)
+
+    def get_absolute_url(self):
+        url = reverse_lazy('detail', kwargs={'pk': self.pk})
+        return url
