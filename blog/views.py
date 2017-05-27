@@ -6,6 +6,10 @@ from .forms import PostForm
 from django.shortcuts import redirect
 
 # Create your views here.
+def main(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts':posts})
+
 def post_list(request, pk):
     #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     #return render(request, 'blog/post_list.html', {'posts':posts})
@@ -26,7 +30,7 @@ def create(request):
         if form.is_valid():
             obj = form.save()
             return redirect(obj)
-            
+
     ctx = {
         'form': form,
     }

@@ -5,6 +5,7 @@ from blog.views import post_list
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import create
+from blog.views import main
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -18,5 +19,6 @@ urlpatterns = [
     ),
     url(r'^post/(?P<pk>[0-9]+)/$', post_list, name = 'post_list'),
     url(r'^post/upload/$', create, name='create'),
+    url(r'^main/', main, name='main'),
 ]
 urlpatterns += static('upload_files', document_root=settings.MEDIA_ROOT)
