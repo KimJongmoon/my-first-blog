@@ -34,4 +34,4 @@ def create(request):
     ctx = {
         'form': form,
     }
-    return render(request, 'edit.html', ctx)
+    return render(request, 'blog/edit.html', ctx)
